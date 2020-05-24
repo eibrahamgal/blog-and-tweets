@@ -28,7 +28,7 @@
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
-                        </div>
+                        </div> 
                     @endif
 
                     <p>Published entries</p>
@@ -37,7 +37,7 @@
                             @foreach($entries as $entry)
 
                                 <li>
-                                <a href="{{url('entries/'.$entry->id)}}">
+                                <a href="{{$entry->geturl()}}">
                                 {{$entry->title}}
                                 </a>
                                 </li>

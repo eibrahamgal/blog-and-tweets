@@ -5,6 +5,8 @@ namespace App\Exceptions;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Throwable;
 
+use App\Exceptions\InvalidEntrySlugException;
+
 class Handler extends ExceptionHandler
 {
     /**
@@ -50,6 +52,12 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Throwable $exception)
     {
+
+        if ($exception instanceof InvalidEntrySlugException) {
+
+            return $exception->render();
+            
+        }
         return parent::render($request, $exception);
     }
 }
